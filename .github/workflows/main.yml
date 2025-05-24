@@ -9,7 +9,7 @@ on:
       - main
 
 env:
-  CSV_URL: "MLProject/Workflow-CI/dataset_preprocessing/zara_ready.csv"
+  CSV_URL: "Workflow-CI/dataset_preprocessing/zara_ready.csv"
   TARGET_VAR: "Sales Volume"
 
 jobs:
