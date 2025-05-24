@@ -9,7 +9,7 @@ on:
       - main
 
 env:
-  CSV_URL: "Workflow-CI/dataset_preprocessing/zara_ready.csv"
+  CSV_URL: "Workflow-CI/MLProjectDirectory/dataset_preprocessing/zara_ready.csv"
   TARGET_VAR: "Sales Volume"
 
 jobs:
@@ -35,6 +35,7 @@ jobs:
 
       - name: Run mlflow project
         run: |
+          cd MLProjectDirectory
           mlflow run MLProject --env-manager=local
 
       - name: Get latest MLflow run_id
