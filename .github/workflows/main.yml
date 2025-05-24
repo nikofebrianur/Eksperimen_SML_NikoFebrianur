@@ -47,6 +47,7 @@ jobs:
 
       - name: Build Docker Model
         run: |
+          cd Workflow-CI/MLProjectDirectory
           mlflow models build-docker --model-uri "runs:/${{ env.RUN_ID }}/model" --name "zara_model"
 
       - name: Log in to Docker Hub
