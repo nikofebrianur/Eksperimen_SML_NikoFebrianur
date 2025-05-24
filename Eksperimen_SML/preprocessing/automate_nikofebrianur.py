@@ -64,10 +64,10 @@ def preprocess_data(data, target_column, save_path, output_csv_path):
 
 
 if __name__ == "__main__":
-    df = pd.read_csv("dataset_raw/zara.csv", delimiter=";")
+    df = pd.read_csv("Eksperimen_SML/dataset_raw/zara.csv", delimiter=";")
     preprocess_data(
         data=df,
         target_column="Sales Volume",
-        save_path="preprocessing/preprocessor_pipeline.joblib",
-        output_csv_path="preprocessing/dataset_preprocessing/zara_ready.csv"
+        save_path="Eksperimen_SML/preprocessing/preprocessor_pipeline.joblib",
+        output_csv_path="Eksperimen_SML/preprocessing/dataset_preprocessing/zara_ready.csv"
     )

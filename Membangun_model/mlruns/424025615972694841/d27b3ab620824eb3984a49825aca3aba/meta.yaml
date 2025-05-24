@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/424025615972694841/d27b3ab620824eb3984a49825aca3aba/artifacts
+end_time: 1748054949352
+entry_point_name: ''
+experiment_id: '424025615972694841'
+lifecycle_stage: active
+run_id: d27b3ab620824eb3984a49825aca3aba
+run_name: clean-sow-213
+run_uuid: d27b3ab620824eb3984a49825aca3aba
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748054947185
+status: 3
+tags: []
+user_id: vebrian

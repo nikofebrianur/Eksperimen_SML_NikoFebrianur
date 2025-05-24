@@ -1,0 +1,15 @@
+artifact_uri: /Users/vebrian/Documents/Dicoding/SMSML_Niko_Febrianur/mlruns/441613565551496617/02cebd2451484dafa812158870ecc36b/artifacts
+end_time: 1748054184700
+entry_point_name: ''
+experiment_id: '441613565551496617'
+lifecycle_stage: active
+run_id: 02cebd2451484dafa812158870ecc36b
+run_name: nervous-gnu-999
+run_uuid: 02cebd2451484dafa812158870ecc36b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748054179758
+status: 3
+tags: []
+user_id: vebrian

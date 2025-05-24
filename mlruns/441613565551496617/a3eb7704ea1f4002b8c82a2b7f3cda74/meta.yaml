@@ -1,0 +1,15 @@
+artifact_uri: /Users/vebrian/Documents/Dicoding/SMSML_Niko_Febrianur/mlruns/441613565551496617/a3eb7704ea1f4002b8c82a2b7f3cda74/artifacts
+end_time: 1748054514842
+entry_point_name: ''
+experiment_id: '441613565551496617'
+lifecycle_stage: active
+run_id: a3eb7704ea1f4002b8c82a2b7f3cda74
+run_name: nebulous-deer-217
+run_uuid: a3eb7704ea1f4002b8c82a2b7f3cda74
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748054508917
+status: 3
+tags: []
+user_id: vebrian

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/424025615972694841/32ef27f678d248a3beae442249527020/artifacts
+end_time: 1748054955985
+entry_point_name: ''
+experiment_id: '424025615972694841'
+lifecycle_stage: active
+run_id: 32ef27f678d248a3beae442249527020
+run_name: invincible-koi-149
+run_uuid: 32ef27f678d248a3beae442249527020
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748054953805
+status: 3
+tags: []
+user_id: vebrian

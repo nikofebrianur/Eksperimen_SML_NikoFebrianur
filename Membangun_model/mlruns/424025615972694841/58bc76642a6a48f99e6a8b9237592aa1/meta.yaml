@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/424025615972694841/58bc76642a6a48f99e6a8b9237592aa1/artifacts
+end_time: 1748054951276
+entry_point_name: ''
+experiment_id: '424025615972694841'
+lifecycle_stage: active
+run_id: 58bc76642a6a48f99e6a8b9237592aa1
+run_name: magnificent-koi-78
+run_uuid: 58bc76642a6a48f99e6a8b9237592aa1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748054949360
+status: 3
+tags: []
+user_id: vebrian
