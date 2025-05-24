@@ -5,6 +5,6 @@ conda_env: conda.yaml
 entry_points:
   main:
     parameters:
-      data_path: {type: str, default: "Workflow-CI/dataset_preprocessing/zara_ready.csv"}
+      data_path: {type: str, default: "Workflow-CI/MLProjectDirectory/dataset_preprocessing/zara_ready.csv"}
     command: >
       python modelling.py --data_path {data_path}
