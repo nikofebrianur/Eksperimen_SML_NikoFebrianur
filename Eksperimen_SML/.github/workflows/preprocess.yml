@@ -1,0 +1,20 @@
+name: Preprocess Dataset
+
+on:
+  push:
+    paths:
+      - 'preprocessing/automate_nikofebrianur.py'
+
+jobs:
+  run-preprocess:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.9'
+    - name: Install dependencies
+      run: pip install pandas scikit-learn joblib
+    - name: Run Preprocessing
+      run: python preprocessing/automate_nikofebrianur.py
