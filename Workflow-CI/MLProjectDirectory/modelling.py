@@ -10,9 +10,6 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--data_path", type=str, required=False, default="Workflow-CI/MLProjectDirectory/dataset_preprocessing/zara_ready.csv")
 args = parser.parse_args()
 
-# Set experiment (not needed for mlflow run, but doesn't break it)
-mlflow.set_experiment("Zara Sales Forecasting")
-
 # Load data
 print("Loading preprocessed dataset...")
 df = pd.read_csv(args.data_path)
