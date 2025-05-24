@@ -10,7 +10,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--data_path", type=str, required=False, default="namadataset_preprocessing/zara_ready.csv")
 args = parser.parse_args()
 
-# Create experiment
+# Set experiment (not needed for mlflow run, but doesn't break it)
 mlflow.set_experiment("Zara Sales Forecasting")
 
 # Load data
@@ -23,32 +23,24 @@ y = df["Sales Volume"]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 input_example = X_train.iloc[0:5]
 
-# Start MLflow run
-with mlflow.start_run():
-    # Hyperparameters
-    n_estimators = 100
-    max_depth = 10
+# Autolog (safe)
+mlflow.autolog()
 
-    # Autolog
-    mlflow.autolog()
+# Define and train model
+n_estimators = 100
+max_depth = 10
 
-    # Define model
-    model = RandomForestRegressor(n_estimators=n_estimators, max_depth=max_depth)
+model = RandomForestRegressor(n_estimators=n_estimators, max_depth=max_depth)
+model.fit(X_train, y_train)
 
-    # Log model explicitly
-    mlflow.sklearn.log_model(
-        sk_model=model,
-        artifact_path="model",
-        input_example=input_example
-    )
+# Evaluate
+preds = model.predict(X_test)
+mse = mean_squared_error(y_test, preds)
 
-    # Fit model
-    model.fit(X_train, y_train)
+# Log results (no start_run needed)
+mlflow.log_param("n_estimators", n_estimators)
+mlflow.log_param("max_depth", max_depth)
+mlflow.log_metric("mse", mse)
+mlflow.sklearn.log_model(model, artifact_path="model", input_example=input_example)
 
-    # Evaluate
-    preds = model.predict(X_test)
-    mse = mean_squared_error(y_test, preds)
-
-    # Log metric
-    mlflow.log_metric("mse", mse)
-    print(f"MSE: {mse}")
+print(f"MSE: {mse}")
