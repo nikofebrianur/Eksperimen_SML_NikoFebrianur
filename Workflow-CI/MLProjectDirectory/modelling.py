@@ -10,10 +10,6 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--data_path", type=str, required=False, default="namadataset_preprocessing/zara_ready.csv")
 args = parser.parse_args()
 
-
-# Set local tracking URI
-mlflow.set_tracking_uri("http://127.0.0.1:5000/")
-
 # Create experiment
 mlflow.set_experiment("Zara Sales Forecasting")
 
