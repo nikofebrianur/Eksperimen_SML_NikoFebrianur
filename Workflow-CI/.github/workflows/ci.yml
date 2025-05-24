@@ -1,0 +1,28 @@
+name: MLflow CI Zara Project
+
+on:
+  push:
+    paths:
+      - MLProject/**
+
+jobs:
+  train-model:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Conda & MLflow
+        run: |
+          python -m pip install --upgrade pip
+          pip install mlflow scikit-learn pandas
+
+      - name: Run MLflow Project
+        run: |
+          cd MLProject
+          mlflow run . -P data_path=Workflow-CI/dataset_preprocessing/zara_ready.csv
