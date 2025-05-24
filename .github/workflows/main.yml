@@ -7,6 +7,7 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
 
 env:
   CSV_URL: "Workflow-CI/MLProjectDirectory/dataset_preprocessing/zara_ready.csv"
@@ -35,8 +36,8 @@ jobs:
 
       - name: Run mlflow project
         run: |
-          cd MLProjectDirectory
-          mlflow run MLProject --env-manager=local
+          cd Workflow-CI/MLProjectDirectory
+          mlflow run . --env-manager=local
 
       - name: Get latest MLflow run_id
         run: |
