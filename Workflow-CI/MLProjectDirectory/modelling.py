@@ -23,13 +23,11 @@ y = df["Sales Volume"]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 input_example = X_train.iloc[0:5]
 
-# Autolog (safe)
-mlflow.autolog()
-
 # Define and train model
 n_estimators = 100
 max_depth = 10
 
+# Fit model
 model = RandomForestRegressor(n_estimators=n_estimators, max_depth=max_depth)
 model.fit(X_train, y_train)
 
@@ -37,7 +35,7 @@ model.fit(X_train, y_train)
 preds = model.predict(X_test)
 mse = mean_squared_error(y_test, preds)
 
-# Log results (no start_run needed)
+# Manual logging
 mlflow.log_param("n_estimators", n_estimators)
 mlflow.log_param("max_depth", max_depth)
 mlflow.log_metric("mse", mse)
