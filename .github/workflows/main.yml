@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  CSV_URL: "Workflow-CI/MLProjectDirectory/dataset_preprocessing/zara_ready.csv"
+  CSV_URL: "Workflow-CI/MLProject/dataset_preprocessing/zara_ready.csv"
   TARGET_VAR: "Sales Volume"
 
 jobs:
