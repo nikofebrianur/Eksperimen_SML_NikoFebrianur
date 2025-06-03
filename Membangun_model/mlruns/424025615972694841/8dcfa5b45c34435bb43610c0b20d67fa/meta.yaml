@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/424025615972694841/8dcfa5b45c34435bb43610c0b20d67fa/artifacts
+end_time: 1748390817462
+entry_point_name: ''
+experiment_id: '424025615972694841'
+lifecycle_stage: active
+run_id: 8dcfa5b45c34435bb43610c0b20d67fa
+run_name: burly-croc-513
+run_uuid: 8dcfa5b45c34435bb43610c0b20d67fa
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748390815573
+status: 3
+tags: []
+user_id: vebrian

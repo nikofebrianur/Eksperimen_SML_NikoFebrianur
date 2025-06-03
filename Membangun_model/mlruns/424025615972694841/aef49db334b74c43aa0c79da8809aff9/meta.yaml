@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/424025615972694841/aef49db334b74c43aa0c79da8809aff9/artifacts
+end_time: 1748390819459
+entry_point_name: ''
+experiment_id: '424025615972694841'
+lifecycle_stage: active
+run_id: aef49db334b74c43aa0c79da8809aff9
+run_name: enchanting-bass-502
+run_uuid: aef49db334b74c43aa0c79da8809aff9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748390817472
+status: 3
+tags: []
+user_id: vebrian

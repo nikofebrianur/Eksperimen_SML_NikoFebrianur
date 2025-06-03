@@ -1,13 +1,13 @@
 import pandas as pd
+import os
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.model_selection import train_test_split
 from joblib import dump
-import os
 
-
-def preprocess_data(data, target_column, save_path, output_csv_path):
+def preprocess_data(data, target_column, save_path_pipeline, output_dir):
     # Menentukan fitur numerik dan kategorikal
     numeric_features = ['price', 'Sales Volume']
     categorical_features = data.select_dtypes(include=['object']).columns.tolist()
@@ -30,7 +30,7 @@ def preprocess_data(data, target_column, save_path, output_csv_path):
         ('encoder', OneHotEncoder(handle_unknown='ignore'))
     ])
 
-    # Gabungkan ke ColumnTransformer
+    # Gabungkan semua pipeline
     preprocessor = ColumnTransformer(
         transformers=[
             ('num', numeric_transformer, numeric_features),
@@ -42,32 +42,39 @@ def preprocess_data(data, target_column, save_path, output_csv_path):
     X = data.drop(columns=[target_column])
     y = data[target_column]
 
-    # Fit dan transform data
+    # Fit dan transform fitur
     X_processed = preprocessor.fit_transform(X)
 
     # Simpan pipeline
-    dump(preprocessor, save_path)
-    print(f"Pipeline berhasil disimpan ke: {save_path}")
+    os.makedirs(os.path.dirname(save_path_pipeline), exist_ok=True)
+    dump(preprocessor, save_path_pipeline)
+    print(f"Pipeline berhasil disimpan ke: {save_path_pipeline}")
 
-    # Konversi hasil ke DataFrame (jika memungkinkan)
+    # Konversi hasil ke DataFrame (jika OneHotEncoder menghasilkan sparse matrix)
     try:
         X_processed_df = pd.DataFrame(X_processed.toarray())
     except:
         X_processed_df = pd.DataFrame(X_processed)
 
-    X_processed_df[target_column] = y.values
+    # Split data
+    X_train, X_test, y_train, y_test = train_test_split(
+        X_processed_df, y, test_size=0.2, random_state=42
+    )
 
-    # Simpan hasil akhir ke CSV
-    os.makedirs(os.path.dirname(output_csv_path), exist_ok=True)
-    X_processed_df.to_csv(output_csv_path, index=False)
-    print(f"Data siap latih berhasil disimpan ke: {output_csv_path}")
+    # Simpan hasil split
+    os.makedirs(output_dir, exist_ok=True)
+    X_train.to_csv(os.path.join(output_dir, "X_train.csv"), index=False)
+    X_test.to_csv(os.path.join(output_dir, "X_test.csv"), index=False)
+    y_train.to_csv(os.path.join(output_dir, "y_train.csv"), index=False)
+    y_test.to_csv(os.path.join(output_dir, "y_test.csv"), index=False)
+    print(f"Data training dan testing berhasil disimpan ke folder: {output_dir}")
 
-
+# Eksekusi utama
 if __name__ == "__main__":
     df = pd.read_csv("Eksperimen_SML/dataset_raw/zara.csv", delimiter=";")
     preprocess_data(
         data=df,
         target_column="Sales Volume",
-        save_path="Eksperimen_SML/preprocessing/preprocessor_pipeline.joblib",
-        output_csv_path="Eksperimen_SML/preprocessing/dataset_preprocessing/zara_ready.csv"
+        save_path_pipeline="Eksperimen_SML/preprocessing/preprocessor_pipeline.joblib",
+        output_dir="Eksperimen_SML/preprocessing/dataset_split"
     )

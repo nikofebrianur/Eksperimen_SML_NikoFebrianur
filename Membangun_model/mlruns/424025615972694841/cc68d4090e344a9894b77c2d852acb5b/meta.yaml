@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/424025615972694841/cc68d4090e344a9894b77c2d852acb5b/artifacts
+end_time: 1748390821510
+entry_point_name: ''
+experiment_id: '424025615972694841'
+lifecycle_stage: active
+run_id: cc68d4090e344a9894b77c2d852acb5b
+run_name: upset-rook-773
+run_uuid: cc68d4090e344a9894b77c2d852acb5b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748390819467
+status: 3
+tags: []
+user_id: vebrian

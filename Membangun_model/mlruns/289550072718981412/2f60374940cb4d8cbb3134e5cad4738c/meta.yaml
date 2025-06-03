@@ -1,0 +1,15 @@
+artifact_uri: /Users/vebrian/Documents/Dicoding/SMSML_Niko_Febrianur/Membangun_model/mlruns/289550072718981412/2f60374940cb4d8cbb3134e5cad4738c/artifacts
+end_time: 1748390605558
+entry_point_name: ''
+experiment_id: '289550072718981412'
+lifecycle_stage: active
+run_id: 2f60374940cb4d8cbb3134e5cad4738c
+run_name: angry-shrimp-643
+run_uuid: 2f60374940cb4d8cbb3134e5cad4738c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1748390600843
+status: 3
+tags: []
+user_id: vebrian
